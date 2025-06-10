@@ -1,0 +1,23 @@
+.movie-card {
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.movie-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 8px 0 4px;
+    letter-spacing: 0.2px;
+}
+
+.movie-poster-image {
+    width: 150px;
+}
+
+.movie-vote-average {
+    margin: 8px 0 4px;
+}

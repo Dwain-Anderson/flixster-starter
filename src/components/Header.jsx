@@ -1,4 +1,10 @@
+import "../styles/Header.css"
+
 export default function Header() {
-    return (<header className="header">Placeholder Header</header>)
+    return (
+    <header>
+        <h1>Header-Placeholder</h1>
+    </header>
+    )
 
 }
