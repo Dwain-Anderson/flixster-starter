@@ -16,7 +16,7 @@ export default function MovieList() {
                 fetchedMovies.results = [...movies.results, ...fetchedMovies.results];
             }
             setMovies(fetchedMovies);
-        });
+        })();
     }
 
 
