@@ -1,4 +1,4 @@
-const data = {
+{
     "page": 1,
     "results": [
     {
@@ -397,5 +397,3 @@ const data = {
     "total_pages": 49622,
     "total_results": 992423
 }
-
-export default data
