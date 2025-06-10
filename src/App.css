@@ -1,28 +1,9 @@
 .App {
   text-align: center;
-}
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
-}
-
-@media (max-width: 600px) {
-  .movie-card {
-    width: 100%;
-  }
-
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .search-bar form {
-    flex-direction: column;
-  }
 }
