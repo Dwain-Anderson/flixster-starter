@@ -20,7 +20,7 @@ const TMDB_SEARCH_URL = (query, pageNumber) =>
  * @param {string} basename
 */
 function formatPosterPath(basename){
-    return `https://image.tmdb.org/t/p/w500${basename}`
+    return basename === null ? "public/movie.png" : `https://image.tmdb.org/t/p/w500${basename}`
 }
 
 /**
