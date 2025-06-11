@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
+import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
 import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL } from "../utils/utils";
 
@@ -13,18 +14,27 @@ export default function MoviesPage() {
     const [nowPlayingActive, setNowPlayingActive] = useState(true);
     const [stateStack, setStateStack] = useState(["initialPage"]);
 
+    const [showModal, setShowModal] = useState(false)
+    const [modalMovie, setModalMovie] = useState({})
+
+    // store previous page data instead of refetching since pn is cumulative under nextPage's concat
     const prevPage = useRef({ pageNumber: 1, movies: null });
 
     const updatePrevPage = (pageNumber, movies) => {
         prevPage.current.pageNumber = pageNumber;
         prevPage.current.movies = movies;
     }
+
+    /**
+     * Fetch initial page of movies
+     */
     async function initialPage() {
         let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
         updatePrevPage(pageNumber, fetchedMovies);
         setMovies(fetchedMovies);
     }
 
+    // fetch next page of movies
     async function nextPage() {
         let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
         if (movies !== null) {
@@ -87,6 +97,7 @@ export default function MoviesPage() {
         setNowPlayingActive(value);
     };
 
+
     return (
         <>
             <Header />
@@ -94,7 +105,16 @@ export default function MoviesPage() {
                 <button className="load-movies" onClick={incrementPageNumber}>Load More Movies</button>
                 <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button>
                 <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
-                <MovieList movies={movies} />
+                {(showModal && (
+                    <MovieModal
+                        key={modalMovie.id}
+                        isOpen={showModal}
+                        movie={modalMovie}
+                        setShowModal={setShowModal}
+                        setModalMovie={setModalMovie}
+                    />
+                ))}
+                <MovieList movies={movies} setModalMovie={setModalMovie} setShowModal={setShowModal} />
             </main>
             <Footer />
         </>

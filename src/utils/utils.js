@@ -10,6 +10,7 @@ const TMDB_OPTIONS = {
         }
 }
 
+
 const TMDB_URL = pageNumber => `https://api.themoviedb.org/3/movie/now_playing?&page=${pageNumber}`
 
 const TMDB_SEARCH_URL = (query, pageNumber) =>
@@ -17,15 +18,16 @@ const TMDB_SEARCH_URL = (query, pageNumber) =>
 
 
 /**
+ * Formats the poster path to a full url
  * @param {string} basename
 */
 function formatPosterPath(basename){
-    return basename === null ? "public/movie.png" : `https://image.tmdb.org/t/p/w500${basename}`
+    return basename === null ? "/movie.png" : `https://image.tmdb.org/t/p/w500${basename}`
 }
 
 /**
- *
- *
+ * Fetches a page of data from the TMDB API using the specified url.
+ * @param {string} url - The url to fetch
  */
 async function fetchDataPage(url) {
     const response = await fetch(url, TMDB_OPTIONS)
