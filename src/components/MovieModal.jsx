@@ -15,7 +15,6 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieI
   };
 
 
-  console.log(movie);
   return (
     <div className="modal">
       <div className="modal-content">
