@@ -19,42 +19,39 @@ export default function MoviesPage() {
         prevPage.current.pageNumber = pageNumber;
         prevPage.current.movies = movies;
     }
+    async function initialPage() {
+        let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
+        updatePrevPage(pageNumber, fetchedMovies);
+        setMovies(fetchedMovies);
+    }
 
+    async function nextPage() {
+        let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
+        if (movies !== null) {
+            fetchedMovies.results = [...movies.results, ...fetchedMovies.results];
+        }
+        updatePrevPage(pageNumber, fetchedMovies);
+        setMovies(fetchedMovies);
+    }
+
+    async function searchPage() {
+        let fetchedMovies = await fetchDataPage(TMDB_SEARCH_URL(searchQuery, 1));
+        setMovies(fetchedMovies);
+    }
+    async function toggleView() {
+        if (nowPlayingActive) {
+            setMovies(prevPage.current.movies)
+        } else {
+            setMovies(null);
+        }
+    }
+    async function clearSearch() {
+        if (!nowPlayingActive) {
+            setMovies(null);
+        }
+    }
 
     useEffect(() => {
-        async function initialPage() {
-            let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
-            updatePrevPage(pageNumber, fetchedMovies);
-            setMovies(fetchedMovies);
-        }
-        async function nextPage() {
-            let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
-            if (movies !== null) {
-                fetchedMovies.results = [...movies.results, ...fetchedMovies.results];
-            }
-            updatePrevPage(pageNumber, fetchedMovies);
-            setMovies(fetchedMovies);
-        }
-        async function searchPage() {
-            let fetchedMovies = await fetchDataPage(TMDB_SEARCH_URL(searchQuery, 1));
-            setMovies(fetchedMovies);
-        }
-        async function toggleView() {
-            if (nowPlayingActive) {
-                setMovies(prevPage.current.movies)
-            } else {
-                setMovies(null);
-            }
-        }
-        async function clearSearch() {
-            if (!nowPlayingActive) {
-                setMovies(null);
-
-            }
-
-
-        }
-
         let nextState = stateStack.pop();
         switch (nextState) {
             case "initialPage":
@@ -78,7 +75,6 @@ export default function MoviesPage() {
     }, [stateStack]);
 
 
-
     const incrementPageNumber = () => {
         stateStack.push("nextPage")
         setStateStack([...stateStack]);
@@ -90,7 +86,6 @@ export default function MoviesPage() {
         setStateStack([...stateStack]);
         setNowPlayingActive(value);
     };
-
 
     return (
         <>
