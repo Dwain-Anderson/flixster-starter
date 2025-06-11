@@ -1,11 +1,13 @@
 import { formatPosterPath } from "../utils/utils"
 import "../styles/MovieCard.css"
 
-export default function MovieCard({ movieData, setModalMovie, setShowModal}) {
+export default function MovieCard({ movieData, setModalMovieId, setShowModal, stateStack, setStateStack}) {
 
     function handleClick(e) {
         e.preventDefault()
-        setModalMovie(movieData)
+        setModalMovieId(movieData.id)
+        stateStack.push("loadMovieDetails")
+        setStateStack([...stateStack])
         setShowModal(true)
      }
 

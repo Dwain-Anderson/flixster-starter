@@ -1,7 +1,5 @@
 const TMDB_API_KEY = import.meta.env.VITE_API_KEY;
-
 const TMDB_BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
-
 const TMDB_OPTIONS = {
         method: 'GET',
         headers: {
@@ -36,4 +34,17 @@ async function fetchDataPage(url) {
 }
 
 
-export {fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL};
+
+
+const TMDB_MOVIE_ID_URL = movieId => `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
+
+
+function formatGenreString(movie, genres) {
+    if (movie === null || movie === undefined || genres === null || genres === undefined) {
+        return "loading...";
+    }
+    const res = genres.map(genre => genre.name);
+    return (!res || res.length === 0) ? "No genres available" : res.join(", ")
+}
+
+export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, formatGenreString};
