@@ -1,19 +1,21 @@
 import { formatPosterPath, formatGenreString} from "../utils/utils"
+
 import "../styles/MovieModal.css"
 
-export default function MovieModal({ movie, isOpen, setShowModal, setModalMovie}) {
-  console.log(movie)
-  if (!isOpen) {
+export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieId, setMovieDetails}) {
+  if (!isOpen || movie === null || movie === undefined) {
     return null;
   }
 
+
   const handleClose = () => {
-    setModalMovie(null);
+    setModalMovieId(null);
     setShowModal(false);
+    setMovieDetails(null);
   };
 
 
-
+  console.log(movie);
   return (
     <div className="modal">
       <div className="modal-content">
@@ -24,11 +26,9 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovie}
           className="movie-poster-image"
         />
         <p className="modal-release-date">Released: {movie.release_date}</p>
-        <p className="modal-runtime">Runtime: {movie.runtime} minutes</p>
-
+        <p className="modal-runtime">Runtime: {movie.runtime } minutes</p>
         <p className="modal-overview">{movie.overview}</p>
-        <p className="modal-genres">Genres: {formatGenreString(movie)}</p>
-
+        <p className="modal-genres">Genres: {formatGenreString(movie, movie.genres)}</p>
         <button className="modal-close-button" onClick={handleClose}>X</button>
       </div>
     </div>

@@ -9,24 +9,6 @@ const TMDB_OPTIONS = {
 }
 
 
-const GENRES_URL ='https://api.themoviedb.org/3/genre/movie/list?language=en'
-
-async function loadGenres() {
-    let genreNames = new Map();
-    try {
-        const response = await fetch(GENRES_URL, TMDB_OPTIONS)
-        const result = await response.json();
-        result.genres.forEach(genre => genreNames.set(genre.id, genre.name))
-        return genreNames;
-    } catch (error) {
-        return genreNames;
-    }
-}
-
-const MOVIE_GENRES = await loadGenres();
-
-
-
 const TMDB_URL = pageNumber => `https://api.themoviedb.org/3/movie/now_playing?&page=${pageNumber}`
 
 const TMDB_SEARCH_URL = (query, pageNumber) =>
@@ -54,9 +36,15 @@ async function fetchDataPage(url) {
 
 
 
-function formatGenreString(movie) {
-    const genres = movie.genre_ids.map(id => MOVIE_GENRES.get(id)).filter(Boolean);
-    return (!genres || genres.length === 0) ? "No genres available" : genres.join(", ")
+const TMDB_MOVIE_ID_URL = movieId => `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
+
+
+function formatGenreString(movie, genres) {
+    if (movie === null || movie === undefined || genres === null || genres === undefined) {
+        return "loading...";
+    }
+    const res = genres.map(genre => genre.name);
+    return (!res || res.length === 0) ? "No genres available" : res.join(", ")
 }
 
-export {fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, formatGenreString};
+export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, formatGenreString};

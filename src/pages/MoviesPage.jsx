@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
 import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
-import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL } from "../utils/utils";
+import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL } from "../utils/utils";
 
 
 export default function MoviesPage() {
@@ -15,7 +15,8 @@ export default function MoviesPage() {
     const [stateStack, setStateStack] = useState(["initialPage"]);
 
     const [showModal, setShowModal] = useState(false)
-    const [modalMovie, setModalMovie] = useState({})
+    const [movieDetails, setMovieDetails] = useState({})
+    const [modalMovieId, setModalMovieId] = useState(null)
 
     // store previous page data instead of refetching since pn is cumulative under nextPage's concat
     const prevPage = useRef({ pageNumber: 1, movies: null });
@@ -48,6 +49,7 @@ export default function MoviesPage() {
         let fetchedMovies = await fetchDataPage(TMDB_SEARCH_URL(searchQuery, 1));
         setMovies(fetchedMovies);
     }
+
     async function toggleView() {
         if (nowPlayingActive) {
             setMovies(prevPage.current.movies)
@@ -55,15 +57,23 @@ export default function MoviesPage() {
             setMovies(null);
         }
     }
+
     async function clearSearch() {
         if (!nowPlayingActive) {
             setMovies(null);
         }
     }
 
+    async function loadMovieDetails() {
+        let fetchedMovie = await fetchDataPage(TMDB_MOVIE_ID_URL(modalMovieId));
+        setMovieDetails(fetchedMovie);
+    }
+
     useEffect(() => {
         let nextState = stateStack.pop();
         switch (nextState) {
+            case undefined: case null:
+                break;
             case "initialPage":
                 initialPage();
                 break;
@@ -78,6 +88,9 @@ export default function MoviesPage() {
                 break;
             case "clearSearch":
                 clearSearch();
+                break;
+            case "loadMovieDetails":
+                loadMovieDetails();
                 break;
             default:
                 break;
@@ -107,14 +120,15 @@ export default function MoviesPage() {
                 <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
                 {(showModal && (
                     <MovieModal
-                        key={modalMovie.id}
+                        key={modalMovieId}
                         isOpen={showModal}
-                        movie={modalMovie}
+                        movie={movieDetails}
                         setShowModal={setShowModal}
-                        setModalMovie={setModalMovie}
+                        setModalMovieId={setModalMovieId}
+                        setMovieDetails={setMovieDetails}
                     />
                 ))}
-                <MovieList movies={movies} setModalMovie={setModalMovie} setShowModal={setShowModal} />
+                <MovieList movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
             </main>
             <Footer />
         </>
