@@ -14,23 +14,23 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
 
 - [x ] **Display Movies**
   - [x ] Users can view a list of current movies from The Movie Database API in a grid view.
-    - [ x] Movie tiles should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
-  - [x ] For each movie displayed, users can see the movie's:
-    - [x ] Title
-    - [x ] Poster image
-    - [x ] Vote average
+    - [x] Movie tiles should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
+  - [x] For each movie displayed, users can see the movie's:
+    - [x] Title
+    - [x] Poster image
+    - [x] Vote average
   - [ ] Users can load more current movies by clicking a button which adds more movies to the grid without reloading the entire page. 
-- [x ] **Search Functionality**
-  - [x ] Users can use a search bar to search for movies by title.
-  - [x ] The search bar should include:
-    - [ x] Text input field
-    - [x ] Submit/Search button
-    - [x ] Clear button
-  - [ x] Movies with a title containing the search query in the text input field are displayed in a grid view when the user either:
+- [x] **Search Functionality**
+  - [x] Users can use a search bar to search for movies by title.
+  - [x] The search bar should include:
+    - [x] Text input field
+    - [x] Submit/Search button
+    - [x] Clear button
+  - [x] Movies with a title containing the search query in the text input field are displayed in a grid view when the user either:
     - [ ] Presses the Enter key
-    - [x ] Clicks the Submit/Search button
-  - [ x] Users can click the Clear button. When clicked:
-    - [x ] Most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
+    - [x] Clicks the Submit/Search button
+  - [x] Users can click the Clear button. When clicked:
+    - [x] Most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
 - [ ] **Design Features**
   - [ ] Website implements all of the following accessibility features:
     - [ ] Semantic HTML
@@ -39,16 +39,16 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
   - [ ] Website implements responsive web design.
     - [ ] Uses CSS Flexbox or CSS Grid
     - [ ] Movie tiles and images shrink/grow in response to window size
-  - [ x] Users can click on a movie tile to view more details about a movie in a pop-up modal.
-    - [ x] The pop-up window is centered in the screen and does not occupy the entire screen.
-    - [x ] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
-    - [x ] The backdrop of the pop-up appears darker or in a different shade than before. including:
+  - [x] Users can click on a movie tile to view more details about a movie in a pop-up modal.
+    - [x] The pop-up window is centered in the screen and does not occupy the entire screen.
+    - [x] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
+    - [x] The backdrop of the pop-up appears darker or in a different shade than before. including:
     - [ ] The pop-up displays additional details about the moving including:
       - [ ] Runtime in minutes
-      - [x ] Backdrop poster
-      - [x ] Release date
+      - [x] Backdrop poster
+      - [x] Release date
       - [ ] Genres
-      - [x ] An overview
+      - [x] An overview
   - [ ] Users can use a drop-down menu to sort movies.
     - [ ] Drop-down allows movies to be sorted by:
       - [ ] Title (alphabetic, A-Z)
