@@ -1,0 +1,118 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    width: 85%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-movie-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    color: #333;
+    text-align: center;
+}
+
+.movie-poster-image {
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.modal-release-date {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.modal-overview {
+    line-height: 1.6;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.modal-genres {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.modal-close-button {
+    position: absolute;
+    background-color: #e63946;
+    bottom: 10px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.modal-close-button:hover {
+    background-color: #c1121f;
+    transform: scale(1.1);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .movie-poster-image {
+        width: 200px;
+    }
+
+    .modal-movie-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+    }
+
+    .movie-poster-image {
+        width: 150px;
+    }
+
+    .modal-movie-title {
+        font-size: 20px;
+    }
+
+    .modal-close-button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
