@@ -39,16 +39,16 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
   - [ ] Website implements responsive web design.
     - [ ] Uses CSS Flexbox or CSS Grid
     - [ ] Movie tiles and images shrink/grow in response to window size
-  - [ ] Users can click on a movie tile to view more details about a movie in a pop-up modal.
-    - [ ] The pop-up window is centered in the screen and does not occupy the entire screen.
-    - [ ] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
-    - [ ] The backdrop of the pop-up appears darker or in a different shade than before. including:
+  - [ x] Users can click on a movie tile to view more details about a movie in a pop-up modal.
+    - [ x] The pop-up window is centered in the screen and does not occupy the entire screen.
+    - [x ] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
+    - [x ] The backdrop of the pop-up appears darker or in a different shade than before. including:
     - [ ] The pop-up displays additional details about the moving including:
       - [ ] Runtime in minutes
-      - [ ] Backdrop poster
-      - [ ] Release date
+      - [x ] Backdrop poster
+      - [x ] Release date
       - [ ] Genres
-      - [ ] An overview
+      - [x ] An overview
   - [ ] Users can use a drop-down menu to sort movies.
     - [ ] Drop-down allows movies to be sorted by:
       - [ ] Title (alphabetic, A-Z)
