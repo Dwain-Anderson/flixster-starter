@@ -1,6 +1,5 @@
 const TMDB_BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 
-
 /**
  * Returns an object that contains the options for the fetch request to The Movie Database API
  * @param {string} methodType - The method type of the request.
@@ -16,7 +15,7 @@ const TMDB_OPTIONS = (methodType) => {
 }
 
 /**
- * A simple object that contains the urls for the different endpoints of the The Movie Database API
+ * An object that contains the urls for the different endpoints of the The Movie Database API
  */
 const TMDB_API_MANAGER = {
     nowPlayingMovies:  pageNumber => `https://api.themoviedb.org/3/movie/now_playing?&page=${pageNumber}`,
@@ -69,4 +68,4 @@ const VISUAL_WATCH_BUTTON = {
     uncheckedIcon: "unwatched.png",
 }
 
-export { TMDB_API_MANAGER, fetchDataPage, formatPosterPath, formatGenreString, VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON };
+export { formatPosterPath, formatGenreString, fetchDataPage, TMDB_API_MANAGER, VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON };

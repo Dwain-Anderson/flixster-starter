@@ -1,15 +1,15 @@
 footer {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     background: #1d212c;
-    padding: 10px 15px;
     border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
 }
 
 footer p {
+    color: #fff;
     margin: 0;
     margin-left: auto;
     padding: 0;
-    color: #fff;
 }
