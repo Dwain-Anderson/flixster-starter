@@ -14,7 +14,7 @@ export default function Search({setSearchQuery, stateStack, setStateStack, toggl
     const handleClear = (event) => {
         event.preventDefault()
         setSearchQuery("")
-        stateStack.push("clearSearch")
+        stateStack.push("clearSearch&toggleView")
         setStateStack([...stateStack])
     }
 

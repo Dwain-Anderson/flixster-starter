@@ -53,18 +53,17 @@ export default function MoviesPage() {
         setMovies(fetchedMovies);
     }
 
-    async function toggleView() {
-        if (nowPlayingActive) {
-            setMovies(prevPage.current.movies)
-        } else {
-            setMovies(null);
-        }
-    }
+    // async function toggleView() {
+    //     if (nowPlayingActive) {
+    //         setMovies(prevPage.current.movies)
+    //     } else {
+    //         setMovies(null);
+    //     }
+    // }
 
     async function clearSearch() {
-        if (!nowPlayingActive) {
-            setMovies(null);
-        }
+        setMovies(prevPage.current.movies);
+
     }
 
     async function loadMovieDetails() {
@@ -104,10 +103,10 @@ export default function MoviesPage() {
             case "searchPage":
                 searchPage();
                 break;
-            case "toggleView":
-                toggleView();
-                break;
-            case "clearSearch":
+            // case "toggleView":
+            //     toggleView();
+            //     break;
+            case "clearSearch&toggleView":
                 clearSearch();
                 break;
             case "loadMovieDetails":
@@ -138,7 +137,7 @@ export default function MoviesPage() {
             <Header />
             <main>
                 <button className="load-movies" onClick={incrementPageNumber}>Load More Movies</button>
-                <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button>
+                {/* <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button> */}
                 <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
                 <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
                 {(showModal && (
