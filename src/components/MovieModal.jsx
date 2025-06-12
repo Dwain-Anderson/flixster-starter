@@ -26,7 +26,7 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieI
         <img
           src={formatPosterPath(movie.backdrop_path)}
           alt={`${movie.title} poster`}
-          className="movie-poster-image"
+          className="movie-poster-image-modal"
         />
         <p className="modal-release-date">Released: {movie.release_date}</p>
         <p className="modal-runtime">Runtime: {movie.runtime } minutes</p>
