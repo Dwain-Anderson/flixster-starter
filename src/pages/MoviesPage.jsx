@@ -148,7 +148,9 @@ export default function MoviesPage() {
                     />
                 ))}
                 <MovieList movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
-                <button className="load-movies" onClick={incrementPageNumber}><p></p>Load More Movies</button>
+                <div className = "load-movies-container">
+                    <button className="load-movies" onClick={incrementPageNumber}><p>Load More Movies</p></button>
+                </div>
             </main>
             <Footer />
         </>

@@ -1,11 +1,32 @@
 .banner {
+    display: flex;
+    justify-content: center;
+}
 
+.load-movies-container {
+    display: flex;
+    justify-content: center;
 }
 
 .load-movies {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1d212c;
+    border-bottom: 1px solid #ddd;
 }
 
-.load-movies p {
 
+.load-movies p {
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+
+.load-movies button {
+    background: #1d212c;
+    border: 1px solid #ddd;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
 }
