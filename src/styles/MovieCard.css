@@ -1,23 +1,132 @@
+.movie-card-container {
+    display: block;
+    width: 100%;
+}
+
 .movie-card {
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
     position: relative;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 .movie-title {
+    display: -webkit-box;
     font-size: 16px;
     font-weight: 600;
+    height: 40px;
     letter-spacing: 0.2px;
-    margin: 8px 0 4px;
+    line-height: 1.2;
+    margin: 8px 10px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.poster-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
 }
 
 .movie-poster-image {
-    width: 40px;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .movie-vote-average {
-    margin: 8px 0 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px 0 8px;
+    text-align: center;
+}
+
+.check-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .movie-card {
+        border-radius: 6px;
+    }
+
+    .movie-title {
+        font-size: 14px;
+        height: 36px;
+        margin: 6px 6px;
+        -webkit-line-clamp: 2;
+    }
+
+    .poster-container {
+        aspect-ratio: 2/3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .movie-poster-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .movie-vote-average {
+        font-size: 12px;
+        margin: 2px 0 6px;
+    }
+
+    .check-button-container {
+        gap: 12px;
+        margin-bottom: 6px;
+    }
+
+    .checkButton-img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .movie-title {
+        font-size: 12px;
+        height: 32px;
+        margin: 4px 4px;
+    }
+
+    .movie-vote-average {
+        font-size: 11px;
+        margin: 0 0 4px;
+    }
+
+    .check-button-container {
+        gap: 8px;
+        margin-bottom: 4px;
+    }
 }

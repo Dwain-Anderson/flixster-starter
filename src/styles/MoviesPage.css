@@ -11,6 +11,25 @@
     padding: 20px;
 }
 
+
+@media (max-width: 768px) {
+    .banner {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .banner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+        gap: 10px;
+    }
+}
+
 .load-movies-container {
     display: flex;
     justify-content: center;

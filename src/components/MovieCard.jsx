@@ -15,11 +15,13 @@ export default function MovieCard({ movieData, setModalMovieId, setShowModal, st
     return (
         <span className="movie-card-container" onClick={handleClick}>
             <div className="movie-card">
-                <img
-                    src={formatPosterPath(movieData.poster_path)}
-                    alt={`${movieData.title} poster`}
-                    className="movie-poster-image"
-                />
+                <div className="poster-container">
+                    <img
+                        src={formatPosterPath(movieData.poster_path)}
+                        alt={`${movieData.title} poster`}
+                        className="movie-poster-image"
+                    />
+                </div>
                 <h2 className="movie-title">{movieData.title}</h2>
                 <p className="movie-vote-average">Rating: {movieData.vote_average}</p>
                 <div className="check-button-container">

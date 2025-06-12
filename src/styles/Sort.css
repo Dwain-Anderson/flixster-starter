@@ -9,6 +9,32 @@
     gap: 10px;
 }
 
+@media (max-width: 768px) {
+    .sort-container {
+        width: 100%;
+        max-width: 400px;
+        justify-content: center;
+    }
+
+    #sort-menu {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #sort-menu {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .sort-select {
+        flex: 1;
+        margin-left: 10px;
+    }
+}
+
 .sort-select {
     background-color: white;
     border: 1px solid #ddd;

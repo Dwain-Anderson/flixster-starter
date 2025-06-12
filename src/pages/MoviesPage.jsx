@@ -73,7 +73,7 @@ export default function MoviesPage() {
 
     /**
      * Sorts the list of movies according to one of three criteria: title, release-date, or vote-average.
-     * If sortDetails does not match any of these three options, the movie list remains unchanged.
+     * If sortDetails does not match any of these three options, sortData becomes the identity function.
      */
     async function sortData() {
         const sortedMoviesList = [...movies.results]
@@ -94,7 +94,8 @@ export default function MoviesPage() {
     }
 
     useEffect(() => {
-        // some things are better left unexplained... (https://en.wikipedia.org/wiki/Finite-state_machine)
+        // We did not cover useContext, so instead of using (https://en.wikipedia.org/wiki/Finite-state_machine) styled mechanism, I would use the
+        // useContext method instead for communicating state changes down the dom tree.
         switch (stateStack.pop()) {
             case "initialPage": case "nextPage":
                 nextPage();
