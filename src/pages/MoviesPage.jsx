@@ -103,9 +103,6 @@ export default function MoviesPage() {
             case "searchPage":
                 searchPage();
                 break;
-            case "clearSearch&toggleView":
-                clearSearch();
-                break;
             case "loadMovieDetails":
                 loadMovieDetails();
                 break;

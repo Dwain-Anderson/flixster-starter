@@ -11,7 +11,7 @@ export default function Sort({setSortDetails, stateStack, setStateStack }) {
 
     return (<div id="sort-container" className="container">
         <section id="sort-menu" className="form">
-            <label htmlFor="sort-select">Sort by:</label>
+            <label htmlFor="sort-select"><p>Sort by:</p></label>
             <select onChange={handleClick} id="sort-select" className="sort-select" aria-label="Sort criteria">
                 <option value="title">Title</option>
                 <option value="release-date">Release Date</option>

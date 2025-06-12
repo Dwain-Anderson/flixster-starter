@@ -1,6 +1,15 @@
+.section .banner {
+    background: #1d212c;
+}
+
+
 .banner {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #1d212c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .load-movies-container {
