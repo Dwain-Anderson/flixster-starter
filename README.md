@@ -26,7 +26,7 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x] Submit/Search button
     - [x] Clear button
   - [x] Movies with a title containing the search query in the text input field are displayed in a grid view when the user either:
-    - [ ] Presses the Enter key
+    - [x] Presses the Enter key
     - [x] Clicks the Submit/Search button
   - [x] Users can click the Clear button. When clicked:
     - [x] Most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
@@ -54,12 +54,12 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
       - [x] Release date (chronologically, most recent to oldest)
       - [x] Vote average (descending, highest to lowest)
     - [x] When a sort option is clicked, movies display in a grid according to selected criterion.
-  - [ ] Website displays:
-    - [ ] Header section
+  - [x] Website displays:
+    - [x] Header section
     - [ ] Banner section
-    - [ ] Search bar
+    - [x] Search bar
     - [ ] Movie grid
-    - [ ] Footer section
+    - [x] Footer section
     - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
   - [ ] **Deployment**
   - [ ] Website is deployed via Render.
