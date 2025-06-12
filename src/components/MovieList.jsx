@@ -2,6 +2,7 @@ import MovieCard from "./MovieCard"
 import "../styles/MovieList.css"
 
 export default function MovieList({movies, setModalMovieId, setShowModal, stateStack, setStateStack}) {
+    console.log("movies:", movies)
     if (!movies) {
         return <p>Loading movie data...</p>
     } else {

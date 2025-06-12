@@ -26,6 +26,5 @@ export default function Search({setSearchQuery, stateStack, setStateStack, toggl
         </form>
          <button className="search-button" onClick={handleClear}>Clear Search Results</button>
      </div>
-
     )
 }

@@ -4,7 +4,8 @@ import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
 import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
-import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL } from "../utils/utils";
+import Sort from "../components/Sort";
+import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL} from "../utils/utils";
 
 
 export default function MoviesPage() {
@@ -17,6 +18,8 @@ export default function MoviesPage() {
     const [showModal, setShowModal] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
     const [modalMovieId, setModalMovieId] = useState(null)
+    const [sortDetails, setSortDetails] = useState(null)
+
 
     // store previous page data instead of refetching since pn is cumulative under nextPage's concat
     const prevPage = useRef({ pageNumber: 1, movies: null });
@@ -30,14 +33,14 @@ export default function MoviesPage() {
      * Fetch initial page of movies
      */
     async function initialPage() {
-        let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
+        const fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
         updatePrevPage(pageNumber, fetchedMovies);
         setMovies(fetchedMovies);
     }
 
     // fetch next page of movies
     async function nextPage() {
-        let fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
+        const fetchedMovies = await fetchDataPage(TMDB_URL(pageNumber));
         if (movies !== null) {
             fetchedMovies.results = [...movies.results, ...fetchedMovies.results];
         }
@@ -46,7 +49,7 @@ export default function MoviesPage() {
     }
 
     async function searchPage() {
-        let fetchedMovies = await fetchDataPage(TMDB_SEARCH_URL(searchQuery, 1));
+        const fetchedMovies = await fetchDataPage(TMDB_SEARCH_URL(searchQuery, 1));
         setMovies(fetchedMovies);
     }
 
@@ -65,15 +68,33 @@ export default function MoviesPage() {
     }
 
     async function loadMovieDetails() {
-        let fetchedMovie = await fetchDataPage(TMDB_MOVIE_ID_URL(modalMovieId));
+        const fetchedMovie = await fetchDataPage(TMDB_MOVIE_ID_URL(modalMovieId));
         setMovieDetails(fetchedMovie);
     }
 
-    useEffect(() => {
-        let nextState = stateStack.pop();
-        switch (nextState) {
-            case undefined: case null:
+    function sortData() {
+        const sortedMoviesList = [...movies.results]
+        switch (sortDetails) {
+            case "title":
+                sortedMoviesList.sort((a, b) => a.title.localeCompare(b.title));
                 break;
+            case "release-date":
+                sortedMoviesList.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+                break;
+            case "vote-average":
+                sortedMoviesList.sort((a, b) => b.vote_average - a.vote_average);
+                break;
+            default:
+                break;
+        }
+        const sortedMovies = { ...movies, results: sortedMoviesList }
+        setMovies(sortedMovies , sortDetails);
+    }
+
+    useEffect(() => {
+        const nextState = stateStack.pop();
+        console.log("nextState:", nextState)
+        switch (nextState) {
             case "initialPage":
                 initialPage();
                 break;
@@ -93,9 +114,13 @@ export default function MoviesPage() {
                 loadMovieDetails();
                 break;
             default:
+                if (sortDetails !== null) {
+                    sortData();
+                } else {
+                    break;
+                }
                 break;
-    }
-    }, [stateStack]);
+    }}, [stateStack, sortDetails]);
 
 
     const incrementPageNumber = () => {
@@ -110,7 +135,6 @@ export default function MoviesPage() {
         setNowPlayingActive(value);
     };
 
-
     return (
         <>
             <Header />
@@ -118,6 +142,7 @@ export default function MoviesPage() {
                 <button className="load-movies" onClick={incrementPageNumber}>Load More Movies</button>
                 <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button>
                 <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
+                <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
                 {(showModal && (
                     <MovieModal
                         key={modalMovieId}
