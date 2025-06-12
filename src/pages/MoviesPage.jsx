@@ -88,7 +88,7 @@ export default function MoviesPage() {
                 break;
         }
         const sortedMovies = { ...movies, results: sortedMoviesList }
-        setMovies(sortedMovies , sortDetails);
+        setMovies(sortedMovies);
     }
 
     useEffect(() => {
@@ -113,13 +113,11 @@ export default function MoviesPage() {
             case "loadMovieDetails":
                 loadMovieDetails();
                 break;
+            case "sortData":
+                sortData();
             default:
-                if (sortDetails !== null) {
-                    sortData();
-                } else {
-                    break;
-                }
                 break;
+
     }}, [stateStack, sortDetails]);
 
 

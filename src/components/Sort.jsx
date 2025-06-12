@@ -2,8 +2,11 @@ export default function Sort({setSortDetails, stateStack, setStateStack }) {
 
     const handleClick = (event) => {
         event.preventDefault();
-        console.log("handleClick event.target.default:", event.target.value)
         setSortDetails(event.target.value)
+        stateStack.push("sortData")
+        setStateStack([...stateStack])
+
+
     }
 
     return (<div id="sort-container" className="container">
