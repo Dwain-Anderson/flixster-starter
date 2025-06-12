@@ -1,4 +1,3 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
 
 ## Unit Assignment: Flixster
 
@@ -12,14 +11,14 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### REQUIRED FEATURES
 
-- [x ] **Display Movies**
-  - [x ] Users can view a list of current movies from The Movie Database API in a grid view.
+- [x] **Display Movies**
+  - [x] Users can view a list of current movies from The Movie Database API in a grid view.
     - [x] Movie tiles should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
   - [x] For each movie displayed, users can see the movie's:
     - [x] Title
     - [x] Poster image
     - [x] Vote average
-  - [ ] Users can load more current movies by clicking a button which adds more movies to the grid without reloading the entire page. 
+  - [x] Users can load more current movies by clicking a button which adds more movies to the grid without reloading the entire page. 
 - [x] **Search Functionality**
   - [x] Users can use a search bar to search for movies by title.
   - [x] The search bar should include:
@@ -43,18 +42,18 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x] The pop-up window is centered in the screen and does not occupy the entire screen.
     - [x] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
     - [x] The backdrop of the pop-up appears darker or in a different shade than before. including:
-    - [ ] The pop-up displays additional details about the moving including:
-      - [ ] Runtime in minutes
+    - [x] The pop-up displays additional details about the moving including:
+      - [x] Runtime in minutes
       - [x] Backdrop poster
       - [x] Release date
-      - [ ] Genres
+      - [x] Genres
       - [x] An overview
-  - [ ] Users can use a drop-down menu to sort movies.
-    - [ ] Drop-down allows movies to be sorted by:
-      - [ ] Title (alphabetic, A-Z)
-      - [ ] Release date (chronologically, most recent to oldest)
-      - [ ] Vote average (descending, highest to lowest)
-    - [ ] When a sort option is clicked, movies display in a grid according to selected criterion.
+  - [x] Users can use a drop-down menu to sort movies.
+    - [x] Drop-down allows movies to be sorted by:
+      - [x] Title (alphabetic, A-Z)
+      - [x] Release date (chronologically, most recent to oldest)
+      - [x] Vote average (descending, highest to lowest)
+    - [x] When a sort option is clicked, movies display in a grid according to selected criterion.
   - [ ] Website displays:
     - [ ] Header section
     - [ ] Banner section
