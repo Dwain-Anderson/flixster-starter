@@ -37,21 +37,26 @@
 
 .load-movies {
     align-items: center;
-    background: #1d212c;
+    background: #1a1e28; /* Slightly darker background for better contrast */
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
 }
 
 .load-movies p {
     color: #fff;
-    font-size: 0.85rem;
+    font-size: 1rem; /* Larger font size for better readability */
+    font-weight: bold; /* Bold text for better contrast */
+    margin: 0;
 }
 
 .load-movies button {
-    background: #1d212c;
+    background: #1a1e28; /* Slightly darker background for better contrast */
     border: 1px solid #ddd;
     color: #fff;
-    font-size: 0.85rem;
+    font-size: 1rem; /* Larger font size for better readability */
+    font-weight: bold; /* Bold text for better contrast */
     padding: 0.5rem 1rem;
 }

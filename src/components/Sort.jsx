@@ -9,15 +9,16 @@ export default function Sort({setSortDetails, stateStack, setStateStack }) {
         setStateStack([...stateStack])
     }
 
-    return (<div id="sort-container" className="container">
-        <section id="sort-menu" className="form">
-            <label htmlFor="sort-select"><p>Sort by:</p></label>
-            <select onChange={handleClick} id="sort-select" className="sort-select" aria-label="Sort criteria">
+    return (
+    <div id="sort-container" className="container">
+        <form id="sort-menu" className="form">
+            <label htmlFor="sort-select" id="sort-label"> <p className="sort-by"> Sort by:</p></label>
+            <select onChange={handleClick} id="sort-select" className="sort-select">
                 <option value="title">Title</option>
                 <option value="release-date">Release Date</option>
                 <option value="vote-average">Vote Average</option>
             </select>
-        </section>
+        </form>
     </div>
     )
 }

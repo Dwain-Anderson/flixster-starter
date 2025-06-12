@@ -14,7 +14,7 @@ export default function MovieCard({ movieData, setModalMovieId, setShowModal, st
 
     return (
         <span className="movie-card-container" onClick={handleClick}>
-            <div className="movie-card">
+            <article className="movie-card">
                 <div className="poster-container">
                     <img
                         src={formatPosterPath(movieData.poster_path)}
@@ -28,7 +28,7 @@ export default function MovieCard({ movieData, setModalMovieId, setShowModal, st
                     <CheckButton visualElement={VISUAL_FAVORITE_BUTTON}></CheckButton>
                     <CheckButton visualElement={VISUAL_WATCH_BUTTON}></CheckButton>
                 </div>
-            </div>
+            </article>
         </span>
     )
 }

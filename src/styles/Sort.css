@@ -9,6 +9,11 @@
     gap: 10px;
 }
 
+.sort-by {
+    color: white;
+    font-weight: bold; /* Make the text bolder for better contrast */
+}
+
 @media (max-width: 768px) {
     .sort-container {
         width: 100%;
@@ -44,11 +49,13 @@
 }
 
 label p {
-    background-color: #1d212c;
+    background-color: #1a1e28; /* Slightly darker background for better contrast */
     border: none;
     border-radius: 4px;
     color: white;
     cursor: pointer;
+    font-size: 16px; /* Larger font size for better readability */
+    font-weight: bold; /* Bold text for better contrast */
     padding: 8px 16px;
     transition: background-color 0.2s;
 }
