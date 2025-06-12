@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL} from "../utils/utils";
+import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL, TMDB_VIDEO_URL} from "../utils/utils";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
@@ -16,6 +16,7 @@ export default function MoviesPage() {
     const [stateStack, setStateStack] = useState(["initialPage"]);
 
     const [showModal, setShowModal] = useState(false)
+
     const [movieDetails, setMovieDetails] = useState({})
     const [modalMovieId, setModalMovieId] = useState(null)
     const [sortDetails, setSortDetails] = useState(null)
@@ -59,7 +60,15 @@ export default function MoviesPage() {
     }
 
     async function loadMovieDetails() {
-        const fetchedMovie = await fetchDataPage(TMDB_MOVIE_ID_URL(modalMovieId));
+        let fetchedMovie = await fetchDataPage(TMDB_MOVIE_ID_URL(modalMovieId));
+        const fetchMovieVideos = await fetchDataPage(TMDB_VIDEO_URL(modalMovieId));
+        const fetchMovieVideo = (fetchMovieVideos.results.filter(video => video.type === "Trailer" && video.site === "YouTube"))[0]
+        if (fetchMovieVideo) {
+            fetchedMovie.video = fetchMovieVideo.key;
+        } else {
+            fetchedMovie.video = null;
+        }
+        fetchedMovie =  {...fetchedMovie}
         setMovieDetails(fetchedMovie);
     }
 

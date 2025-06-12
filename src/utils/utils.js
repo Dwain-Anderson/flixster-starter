@@ -62,6 +62,13 @@ function formatGenreString(movie, genres) {
     return (!result || result.length === 0) ? "No genres available" : result.join(", ")
 }
 
-export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, formatGenreString,
+
+
+const TMDB_VIDEO_URL = movieId => `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`
+
+
+
+
+export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, TMDB_VIDEO_URL, formatGenreString,
     VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON
 };
