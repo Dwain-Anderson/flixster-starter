@@ -14,8 +14,8 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieI
     setMovieDetails(null);
   };
 
-  const handleOverlayClick = (e) => {
-    if (e.target.className === 'modal') {
+  const handleOverlayClick = (event) => {
+    if (event.target.className === 'modal') {
       handleClose();
     }
   };

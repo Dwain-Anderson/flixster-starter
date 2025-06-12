@@ -1,4 +1,3 @@
-const TMDB_API_KEY = import.meta.env.VITE_API_KEY;
 const TMDB_BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
 const TMDB_OPTIONS = {
         method: 'GET',

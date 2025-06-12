@@ -1,20 +1,21 @@
-
-.checkButton-icon {
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  background-size: 20px 20px;
-
+.watched, .unwatched, .favorited, .unfavorited {
+  border: none;
+  background: none;
+  margin: auto;
 }
 
-button .watched, button .unwatched {
-    background-color: white
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.checkButton-icon {
+  display: inline-block;
+  line-height: 0;
 }
 
 .checkButton-img {
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  background-size: 20px 20px;
-
+  width: 24px;
+  height: 24px;
+  display: block;
 }

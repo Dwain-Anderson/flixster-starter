@@ -14,9 +14,7 @@ export default function MoviesPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [nowPlayingActive, setNowPlayingActive] = useState(true);
     const [stateStack, setStateStack] = useState(["initialPage"]);
-
     const [showModal, setShowModal] = useState(false)
-
     const [movieDetails, setMovieDetails] = useState({})
     const [modalMovieId, setModalMovieId] = useState(null)
     const [sortDetails, setSortDetails] = useState(null)
@@ -56,20 +54,19 @@ export default function MoviesPage() {
 
     async function clearSearch() {
         setMovies(prevPage.current.movies);
-
     }
 
     async function loadMovieDetails() {
         let fetchedMovie = await fetchDataPage(TMDB_MOVIE_ID_URL(modalMovieId));
+
+        fetchedMovie = {...fetchedMovie, video: null}
+
         const fetchMovieVideos = await fetchDataPage(TMDB_VIDEO_URL(modalMovieId));
         const fetchMovieVideo = (fetchMovieVideos.results.filter(video => video.type === "Trailer" && video.site === "YouTube"))[0]
         if (fetchMovieVideo) {
             fetchedMovie.video = fetchMovieVideo.key;
-        } else {
-            fetchedMovie.video = null;
         }
-        fetchedMovie =  {...fetchedMovie}
-        setMovieDetails(fetchedMovie);
+        setMovieDetails({...fetchedMovie});
     }
 
     function sortData() {
@@ -92,8 +89,7 @@ export default function MoviesPage() {
     }
 
     useEffect(() => {
-        const nextState = stateStack.pop();
-        switch (nextState) {
+        switch (stateStack.pop()) {
             case "initialPage":
                 initialPage();
                 break;
@@ -108,10 +104,13 @@ export default function MoviesPage() {
                 break;
             case "sortData":
                 sortData();
+                break;
+            case "clearSearch&toggleView":
+                clearSearch();
+                break;
             default:
                 break;
-
-    }}, [stateStack, sortDetails]);
+    }}, [stateStack]);
 
 
     const incrementPageNumber = () => {

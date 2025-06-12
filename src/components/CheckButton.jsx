@@ -4,9 +4,9 @@ import "../styles/CheckButton.css"
 export default function CheckButton({ visualElement }) {
     const [checkState, setCheckState] = useState(false);
 
-    function handleClick(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    const handleClick = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         setCheckState(!checkState);
     }
 
