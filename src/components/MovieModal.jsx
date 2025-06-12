@@ -14,8 +14,14 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieI
     setMovieDetails(null);
   };
 
+  const handleOverlayClick = (e) => {
+    if (e.target.className === 'modal') {
+      handleClose();
+    }
+  };
+
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleOverlayClick}>
       <div className="modal-content">
         <h2 className="modal-movie-title">{movie.title}</h2>
         <img
