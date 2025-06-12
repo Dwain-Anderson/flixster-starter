@@ -5,7 +5,7 @@ Submitted by: **NAME**
 
 Estimated time spent: **#** hours spent in total
 
-Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Flixster Deployed Site](https://flixster-starter-8a94.onrender.com)
 
 ### Application Features
 
@@ -35,9 +35,9 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [ ] Semantic HTML
     - [ ] [Color contrast](https://webaim.org/resources/contrastchecker/)
     - [ ] Alt text for images 
-  - [ ] Website implements responsive web design.
-    - [ ] Uses CSS Flexbox or CSS Grid
-    - [ ] Movie tiles and images shrink/grow in response to window size
+  - [x] Website implements responsive web design.
+    - [x] Uses CSS Flexbox or CSS Grid
+    - [x] Movie tiles and images shrink/grow in response to window size
   - [x] Users can click on a movie tile to view more details about a movie in a pop-up modal.
     - [x] The pop-up window is centered in the screen and does not occupy the entire screen.
     - [x] The pop-up window has a shadow to show that it is a pop-up and appears floating on the screen.
@@ -61,8 +61,8 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x] Movie grid
     - [x] Footer section
     - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
-  - [ ] **Deployment**
-  - [ ] Website is deployed via Render.
+  - [x] **Deployment**
+  - [x] Website is deployed via Render.
   - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
 
 #### STRETCH FEATURES
