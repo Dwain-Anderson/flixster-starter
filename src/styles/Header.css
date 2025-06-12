@@ -1,8 +1,14 @@
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background: #1d212c;
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
 }

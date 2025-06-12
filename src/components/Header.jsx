@@ -3,8 +3,7 @@ import "../styles/Header.css"
 export default function Header() {
     return (
     <header>
-        <h1>Header-Placeholder</h1>
+        <h1>Flixster</h1>
     </header>
     )
-
 }

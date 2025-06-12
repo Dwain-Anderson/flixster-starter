@@ -6,3 +6,10 @@ footer {
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
 }
+
+footer p {
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    color: #fff;
+}

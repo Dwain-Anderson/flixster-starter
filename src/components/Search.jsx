@@ -9,6 +9,7 @@ export default function Search({setSearchQuery, stateStack, setStateStack, toggl
         toggleClick(false)
         stateStack.push("searchPage")
         setStateStack([...stateStack])
+        event.target.reset()
     };
 
     const handleClear = (event) => {

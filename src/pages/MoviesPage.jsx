@@ -133,11 +133,11 @@ export default function MoviesPage() {
         <>
             <Header />
             <main>
-                <button className="load-movies" onClick={incrementPageNumber}>Load More Movies</button>
-                {/* <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button> */}
-                <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
-                <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
-                {(showModal && (
+                <section className="banner">
+                    <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
+                    <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
+                </section>
+                 {(showModal && (
                     <MovieModal
                         key={modalMovieId}
                         isOpen={showModal}
@@ -148,6 +148,7 @@ export default function MoviesPage() {
                     />
                 ))}
                 <MovieList movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
+                <button className="load-movies" onClick={incrementPageNumber}><p></p>Load More Movies</button>
             </main>
             <Footer />
         </>
