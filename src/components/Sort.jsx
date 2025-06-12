@@ -1,3 +1,5 @@
+import "../styles/Sort.css"
+
 export default function Sort({setSortDetails, stateStack, setStateStack }) {
 
     const handleClick = (event) => {
@@ -5,8 +7,6 @@ export default function Sort({setSortDetails, stateStack, setStateStack }) {
         setSortDetails(event.target.value)
         stateStack.push("sortData")
         setStateStack([...stateStack])
-
-
     }
 
     return (<div id="sort-container" className="container">

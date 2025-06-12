@@ -1,5 +1,7 @@
-import { formatPosterPath } from "../utils/utils"
+import { formatPosterPath, VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON } from "../utils/utils"
+import CheckButton from "./CheckButton"
 import "../styles/MovieCard.css"
+
 
 export default function MovieCard({ movieData, setModalMovieId, setShowModal, stateStack, setStateStack}) {
 
@@ -21,6 +23,10 @@ export default function MovieCard({ movieData, setModalMovieId, setShowModal, st
                     className="movie-poster-image"
                 />
                 <p className="movie-vote-average">Rating: {movieData.vote_average}</p>
+                <div className="check-button-container">
+                    <CheckButton visualElement={VISUAL_FAVORITE_BUTTON}></CheckButton>
+                    <CheckButton visualElement={VISUAL_WATCH_BUTTON}></CheckButton>
+                </div>
             </div>
         </span>
     )

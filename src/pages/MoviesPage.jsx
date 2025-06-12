@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL} from "../utils/utils";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
 import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
 import Sort from "../components/Sort";
-import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL} from "../utils/utils";
-
+import "../styles/MoviesPage.css";
 
 export default function MoviesPage() {
     const [pageNumber, setPageNumber] = useState(1);
@@ -53,18 +53,17 @@ export default function MoviesPage() {
         setMovies(fetchedMovies);
     }
 
-    async function toggleView() {
-        if (nowPlayingActive) {
-            setMovies(prevPage.current.movies)
-        } else {
-            setMovies(null);
-        }
-    }
+    // async function toggleView() {
+    //     if (nowPlayingActive) {
+    //         setMovies(prevPage.current.movies)
+    //     } else {
+    //         setMovies(null);
+    //     }
+    // }
 
     async function clearSearch() {
-        if (!nowPlayingActive) {
-            setMovies(null);
-        }
+        setMovies(prevPage.current.movies);
+
     }
 
     async function loadMovieDetails() {
@@ -93,7 +92,6 @@ export default function MoviesPage() {
 
     useEffect(() => {
         const nextState = stateStack.pop();
-        console.log("nextState:", nextState)
         switch (nextState) {
             case "initialPage":
                 initialPage();
@@ -104,10 +102,7 @@ export default function MoviesPage() {
             case "searchPage":
                 searchPage();
                 break;
-            case "toggleView":
-                toggleView();
-                break;
-            case "clearSearch":
+            case "clearSearch&toggleView":
                 clearSearch();
                 break;
             case "loadMovieDetails":
@@ -138,7 +133,7 @@ export default function MoviesPage() {
             <Header />
             <main>
                 <button className="load-movies" onClick={incrementPageNumber}>Load More Movies</button>
-                <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button>
+                {/* <button className="toggle-view" onClick={() => toggleViewClicked(true)}>Now-Playing</button> */}
                 <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} toggleClick={toggleViewClicked} />
                 <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
                 {(showModal && (

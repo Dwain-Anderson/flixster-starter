@@ -1,0 +1,20 @@
+
+.checkButton-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background-size: 20px 20px;
+
+}
+
+button .watched, button .unwatched {
+    background-color: white
+}
+
+.checkButton-img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background-size: 20px 20px;
+
+}
