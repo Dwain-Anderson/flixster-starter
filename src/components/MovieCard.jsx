@@ -2,7 +2,7 @@ import { formatPosterPath, VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON } from ".
 import CheckButton from "./CheckButton"
 import "../styles/MovieCard.css"
 
-export default function MovieCard({ movieData, setModalMovieId, setShowModal, stateStack, setStateStack, updateCheckedMovies}) {
+export default function MovieCard({ movieData, setModalMovieId, setShowModal, stateStack, setStateStack, updateCheckedMovies }) {
 
     const handleClick = (event) => {
         event.preventDefault()

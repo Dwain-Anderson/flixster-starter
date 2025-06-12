@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "../styles/CheckButton.css"
 
-export default function CheckButton({ visualElement, movie, updateCheckedMovies}) {
+export default function CheckButton({ visualElement, movie, updateCheckedMovies }) {
     const [checkState, setCheckState] = useState(false);
 
     const buttonLabel = checkState

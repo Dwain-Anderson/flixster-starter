@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "../styles/Sidebar.css";
 
-export default function Sidebar({ setShowDefaultMovies, stateStack, setStateStack}) {
+export default function Sidebar({ setShowDefaultMovies, stateStack, setStateStack }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = (buttonName) => (event) => {

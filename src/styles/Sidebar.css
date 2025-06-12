@@ -1,5 +1,4 @@
 
-/* Hamburger menu button */
 .toggle-button {
   position: fixed;
   top: 10px;
@@ -12,38 +11,38 @@
   border-radius: 4px;
   font-size: 20px;
   cursor: pointer;
-  z-index: 1001; /* Higher than sidebar to stay on top */
+  z-index: 1001;
 }
 
-/* Sidebar container */
+
 .sidebar {
   position: fixed;
   top: 0;
-  right: -200px; /* Hidden by default */
-  width: auto; /* Auto width instead of fixed */
-  min-width: 150px; /* Minimum width */
-  height: auto; /* Auto height */
+  right: -200px;
+  width: auto;
+  min-width: 150px;
+  height: auto;
   background-color: #1d212c;
   transition: right 0.3s ease;
   z-index: 1000;
   border-radius: 0 0 0 8px;
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin-top: 50px; /* Space for the header */
+  margin-top: 50px;
 }
 
-/* When sidebar is open */
+
 .sidebar.open {
   right: 0;
 }
 
-/* Content container */
+
 .sidebar-content {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Small gap between buttons */
+  gap: 5px;
 }
-/*  */
+
 
 .sidebar-button {
   background: none;

@@ -1,7 +1,7 @@
-import { formatPosterPath, formatGenreString} from "../utils/utils"
+import { formatPosterPath, formatGenreString } from "../utils/utils"
 import "../styles/MovieModal.css"
 
-export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieId, setMovieDetails}) {
+export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieId, setMovieDetails }) {
 
   if (!isOpen || movie === null || movie === undefined) {
     return null;
@@ -29,13 +29,13 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieI
           className="movie-poster-image-modal"
         />
         <p className="modal-release-date">Released: {movie.release_date}</p>
-        <p className="modal-runtime">Runtime: {movie.runtime } minutes</p>
+        <p className="modal-runtime">Runtime: {movie.runtime} minutes</p>
         <p className="modal-overview">{movie.overview}</p>
         <p className="modal-genres">Genres: {formatGenreString(movie, movie.genres)}</p>
         <div className="modal-trailer-container">
           <iframe className="modal-trailer"
             src={`https://www.youtube.com/embed/${movie.video}`}>
-            </iframe>
+          </iframe>
         </div>
         <button className="modal-close-button" onClick={handleClose}>X</button>
       </div>

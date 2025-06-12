@@ -23,7 +23,7 @@
 }
 
 .movie-title {
-    color: #000000; 
+    color: #000000;
     display: -webkit-box;
     font-size: 16px;
     font-weight: 600;
@@ -59,7 +59,7 @@
 }
 
 .movie-vote-average {
-    color: #333333; /* Dark gray text for good contrast */
+    color: #333333;
     font-size: 14px;
     font-weight: 500;
     margin: 4px 0 8px;

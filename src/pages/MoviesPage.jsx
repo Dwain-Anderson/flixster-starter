@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { fetchDataPage, TMDB_API_MANAGER} from "../utils/utils";
+import { fetchDataPage, TMDB_API_MANAGER } from "../utils/utils";
 import MovieList from "../components/MovieList";
 import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
@@ -79,11 +79,11 @@ export default function MoviesPage() {
         let fetchedMovie = await fetchDataPage(TMDB_API_MANAGER.getMovieById(modalMovieId));
         const fetchMovieVideos = await fetchDataPage(TMDB_API_MANAGER.getMovieVideos(modalMovieId));
         const fetchMovieVideo = (fetchMovieVideos.results.filter(video => video.type === "Trailer" && video.site === "YouTube"))[0]
-        fetchedMovie = {...fetchedMovie, video: null}
+        fetchedMovie = { ...fetchedMovie, video: null }
         if (fetchMovieVideo) {
             fetchedMovie.video = fetchMovieVideo.key;
         }
-        setMovieDetails({...fetchedMovie});
+        setMovieDetails({ ...fetchedMovie });
     }
 
     /**
@@ -115,7 +115,7 @@ export default function MoviesPage() {
         if (key !== WATCHED_CHECK_STRING && key !== LIKED_CHECK_STRING) {
             return;
         }
-        setMovies({ ...movies, results: checkedMovies.get(key)})
+        setMovies({ ...movies, results: checkedMovies.get(key) })
     }
 
     useEffect(() => {
@@ -143,7 +143,8 @@ export default function MoviesPage() {
                 break;
             default:
                 break;
-    }}, [stateStack]);
+        }
+    }, [stateStack]);
 
 
     const incrementPageNumber = () => {
@@ -155,31 +156,29 @@ export default function MoviesPage() {
     return (
         <div className="movies-page">
             <section>
-            <Sidebar setShowDefaultMovies={setShowDefaultMovies} stateStack={stateStack} setStateStack={setStateStack}>
+                <Sidebar setShowDefaultMovies={setShowDefaultMovies} stateStack={stateStack} setStateStack={setStateStack}>
 
-</Sidebar>
+                </Sidebar>
 
-{(showDefaultMovies && <section className="banner">
-        <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} />
-        <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
-    </section>) }
-
+                {(showDefaultMovies && <section className="banner">
+                    <Search setSearchQuery={setSearchQuery} stateStack={stateStack} setStateStack={setStateStack} />
+                    <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
+                </section>)}
             </section>
-
-                 {(showModal && (
-                    <MovieModal
-                        key={modalMovieId}
-                        isOpen={showModal}
-                        movie={movieDetails}
-                        setShowModal={setShowModal}
-                        setModalMovieId={setModalMovieId}
-                        setMovieDetails={setMovieDetails}
-                    />
-                ))}
-                <MovieList updateCheckedMovies={updateCheckedMovies} movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
-                {(showDefaultMovies && <div className = "load-movies-container">
-                    <button className="load-movies" onClick={incrementPageNumber}><p>Load More Movies</p></button>
-                </div>)}
+            {(showModal && (
+                <MovieModal
+                    key={modalMovieId}
+                    isOpen={showModal}
+                    movie={movieDetails}
+                    setShowModal={setShowModal}
+                    setModalMovieId={setModalMovieId}
+                    setMovieDetails={setMovieDetails}
+                />
+            ))}
+            <MovieList updateCheckedMovies={updateCheckedMovies} movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
+            {(showDefaultMovies && <div className="load-movies-container">
+                <button className="load-movies" onClick={incrementPageNumber}><p>Load More Movies</p></button>
+            </div>)}
         </div>
     )
 }
