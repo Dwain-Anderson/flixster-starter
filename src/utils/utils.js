@@ -36,6 +36,7 @@ async function fetchDataPage(url) {
 
 
 
+
 const TMDB_MOVIE_ID_URL = movieId => `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
 
 
@@ -43,8 +44,8 @@ function formatGenreString(movie, genres) {
     if (movie === null || movie === undefined || genres === null || genres === undefined) {
         return "loading...";
     }
-    const res = genres.map(genre => genre.name);
-    return (!res || res.length === 0) ? "No genres available" : res.join(", ")
+    const result = genres.map(genre => genre.name);
+    return (!result || result.length === 0) ? "No genres available" : result.join(", ")
 }
 
 export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, formatGenreString};
