@@ -1,9 +1,9 @@
 
 ## Unit Assignment: Flixster
 
-Submitted by: **NAME**
+Submitted by: **Dwain Anderson**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **20** hours spent in total
 
 Deployed Application (**required**): [Flixster Deployed Site](https://flixster-starter-8a94.onrender.com)
 
@@ -30,11 +30,11 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
     - [x] Clicks the Submit/Search button
   - [x] Users can click the Clear button. When clicked:
     - [x] Most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
-- [ ] **Design Features**
-  - [ ] Website implements all of the following accessibility features:
-    - [ ] Semantic HTML
-    - [ ] [Color contrast](https://webaim.org/resources/contrastchecker/)
-    - [ ] Alt text for images 
+- [x] **Design Features**
+  - [x] Website implements all of the following accessibility features:
+    - [x] Semantic HTML
+    - [x] [Color contrast](https://webaim.org/resources/contrastchecker/)
+    - [x] Alt text for images 
   - [x] Website implements responsive web design.
     - [x] Uses CSS Flexbox or CSS Grid
     - [x] Movie tiles and images shrink/grow in response to window size
@@ -63,7 +63,7 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
     - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
   - [x] **Deployment**
   - [x] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
 
 #### STRETCH FEATURES
 
@@ -108,21 +108,16 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
-
-Add your response here
+The labs were helpful with implementing useState and component related features but not useEffect with multiple dependencies and multiple functions.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
-Add your response here
+Refractor code to use useContext.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+ I did not demo.
 
-Add your response here
 
 ### Open-source libraries used
-
-- Add any links to open-source libraries used in your project.
-
+N/A
 ### Shout out
-
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+TA.
