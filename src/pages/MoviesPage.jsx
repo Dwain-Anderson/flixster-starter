@@ -53,14 +53,6 @@ export default function MoviesPage() {
         setMovies(fetchedMovies);
     }
 
-    // async function toggleView() {
-    //     if (nowPlayingActive) {
-    //         setMovies(prevPage.current.movies)
-    //     } else {
-    //         setMovies(null);
-    //     }
-    // }
-
     async function clearSearch() {
         setMovies(prevPage.current.movies);
 
