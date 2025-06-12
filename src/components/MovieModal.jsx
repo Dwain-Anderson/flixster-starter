@@ -1,5 +1,4 @@
 import { formatPosterPath, formatGenreString} from "../utils/utils"
-
 import "../styles/MovieModal.css"
 
 export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieId, setMovieDetails}) {

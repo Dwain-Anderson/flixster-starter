@@ -9,6 +9,20 @@ const TMDB_OPTIONS = {
 }
 
 
+const VISUAL_FAVORITE_BUTTON  =  {
+    name: "favorited",
+    checkedIcon: "liked.png",
+    uncheckedIcon: "unliked.png",
+}
+
+
+const VISUAL_WATCH_BUTTON = {
+    name: "watched",
+    checkedIcon: "watched.png",
+    uncheckedIcon: "unwatched.png",
+}
+
+
 const TMDB_URL = pageNumber => `https://api.themoviedb.org/3/movie/now_playing?&page=${pageNumber}`
 
 const TMDB_SEARCH_URL = (query, pageNumber) =>
@@ -48,4 +62,6 @@ function formatGenreString(movie, genres) {
     return (!result || result.length === 0) ? "No genres available" : result.join(", ")
 }
 
-export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, formatGenreString};
+export { fetchDataPage, formatPosterPath, TMDB_URL, TMDB_SEARCH_URL, TMDB_MOVIE_ID_URL, formatGenreString,
+    VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON
+};

@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL} from "../utils/utils";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MovieList from "../components/MovieList";
 import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
 import Sort from "../components/Sort";
-import { fetchDataPage, TMDB_SEARCH_URL, TMDB_URL, TMDB_MOVIE_ID_URL} from "../utils/utils";
-
+import "../styles/MoviesPage.css";
 
 export default function MoviesPage() {
     const [pageNumber, setPageNumber] = useState(1);
@@ -92,7 +92,6 @@ export default function MoviesPage() {
 
     useEffect(() => {
         const nextState = stateStack.pop();
-        console.log("nextState:", nextState)
         switch (nextState) {
             case "initialPage":
                 initialPage();
@@ -103,9 +102,6 @@ export default function MoviesPage() {
             case "searchPage":
                 searchPage();
                 break;
-            // case "toggleView":
-            //     toggleView();
-            //     break;
             case "clearSearch&toggleView":
                 clearSearch();
                 break;
