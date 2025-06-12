@@ -1,12 +1,11 @@
 import { formatPosterPath, formatGenreString} from "../utils/utils"
-// import Embeddded Video
 import "../styles/MovieModal.css"
 
 export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieId, setMovieDetails}) {
+
   if (!isOpen || movie === null || movie === undefined) {
     return null;
   }
-
 
   const handleClose = () => {
     setModalMovieId(null);
@@ -34,7 +33,7 @@ export default function MovieModal({ movie, isOpen, setShowModal, setModalMovieI
         <p className="modal-overview">{movie.overview}</p>
         <p className="modal-genres">Genres: {formatGenreString(movie, movie.genres)}</p>
         <div className="modal-trailer-container">
-          <iframe className="modal-trailer" width="420" height="315"
+          <iframe className="modal-trailer"
             src={`https://www.youtube.com/embed/${movie.video}`}>
             </iframe>
         </div>

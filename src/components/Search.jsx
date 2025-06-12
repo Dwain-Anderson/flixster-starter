@@ -1,21 +1,20 @@
 
 import "../styles/Search.css"
 
-export default function Search({setSearchQuery, stateStack, setStateStack, toggleClick}) {
+export default function Search({setSearchQuery, stateStack, setStateStack}) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
         setSearchQuery((new FormData(event.target)).get('query'))
-        toggleClick(false)
         stateStack.push("searchPage")
         setStateStack([...stateStack])
         event.target.reset()
     };
 
-    const handleClear = (event) => {
+    const handleClick = (event) => {
         event.preventDefault()
         setSearchQuery("")
-        stateStack.push("clearSearch&toggleView")
+        stateStack.push("clearSearch")
         setStateStack([...stateStack])
     }
 
@@ -25,7 +24,7 @@ export default function Search({setSearchQuery, stateStack, setStateStack, toggl
             <input className="search-input" type="text" name="query"  placeholder="Search for movies" />
             <button className="search-button" type="submit"> Search </button>
         </form>
-         <button className="search-button" onClick={handleClear}>Clear Search Results</button>
+         <button className="search-button" onClick={handleClick}>Clear Search Results</button>
      </div>
     )
 }

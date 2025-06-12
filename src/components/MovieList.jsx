@@ -3,7 +3,7 @@ import "../styles/MovieList.css"
 
 export default function MovieList({movies, setModalMovieId, setShowModal, stateStack, setStateStack}) {
     if (!movies) {
-        return <p>Loading movie data...</p>
+        return (<p>Loading movie data...</p>)
     } else {
         return (
             <div className="movie-list">
