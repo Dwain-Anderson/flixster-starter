@@ -1,11 +1,12 @@
 
 import "../styles/Search.css"
 
-export default function Search({ setSearchQuery, stateStack, setStateStack }) {
+export default function Search({ setOnSearch, setSearchQuery, stateStack, setStateStack }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
         setSearchQuery((new FormData(event.target)).get('query'))
+        setOnSearch(true)
         stateStack.push("searchPage")
         setStateStack([...stateStack])
         event.target.reset()
@@ -14,6 +15,7 @@ export default function Search({ setSearchQuery, stateStack, setStateStack }) {
     const handleClick = (event) => {
         event.preventDefault()
         setSearchQuery("")
+        setOnSearch(false)
         stateStack.push("clearSearch")
         setStateStack([...stateStack])
     }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "../styles/Sidebar.css";
 
-export default function Sidebar({ setShowDefaultMovies, stateStack, setStateStack }) {
+export default function Sidebar({ setShowDefaultMovies, stateStack, setStateStack, setOnSearch }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = (buttonName) => (event) => {
@@ -13,6 +13,7 @@ export default function Sidebar({ setShowDefaultMovies, stateStack, setStateStac
                 setStateStack([...stateStack]);
                 break;
             case "home": default:
+                setOnSearch(false)
                 setShowDefaultMovies(true);
                 stateStack.push(buttonName);
                 setStateStack([...stateStack]);

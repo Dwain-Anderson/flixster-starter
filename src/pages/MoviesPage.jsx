@@ -17,6 +17,7 @@ export default function MoviesPage() {
     const [modalMovieId, setModalMovieId] = useState(null)
     const [sortDetails, setSortDetails] = useState(null)
     const [showDefaultMovies, setShowDefaultMovies] = useState(true)
+    const [onSearch, setOnSearch] = useState(false)
 
     const LIKED_CHECK_STRING = "favorited"
     const WATCHED_CHECK_STRING = "watched"
@@ -28,7 +29,6 @@ export default function MoviesPage() {
     const [checkedMovies, setCheckedMovies] = useState(initMap)
 
     function updateCheckedMovies(key, movie, membership) {
-        console.log(key, movie, membership)
         const value = checkedMovies.get(key)
         const newCheckedMovies = membership ? [...value, movie] : value.filter(item => item.id !== movie.id)
         checkedMovies.set(key, newCheckedMovies)
@@ -156,12 +156,12 @@ export default function MoviesPage() {
     return (
         <div className="movies-page">
             <section>
-                <Sidebar setShowDefaultMovies={setShowDefaultMovies} stateStack={stateStack} setStateStack={setStateStack}>
+                <Sidebar setOnSearch={setOnSearch} setShowDefaultMovies={setShowDefaultMovies} stateStack={stateStack} setStateStack={setStateStack}>
 
                 </Sidebar>
 
                 {(showDefaultMovies && <section className="banner">
-                    <Search setSearchQuery={setSearchQuery} stateStack={stateStack} setStateStack={setStateStack} />
+                    <Search setOnSearch={setOnSearch} setSearchQuery={setSearchQuery} stateStack={stateStack} setStateStack={setStateStack} />
                     <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
                 </section>)}
             </section>
@@ -176,7 +176,7 @@ export default function MoviesPage() {
                 />
             ))}
             <MovieList updateCheckedMovies={updateCheckedMovies} movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
-            {(showDefaultMovies && <div className="load-movies-container">
+            {((showDefaultMovies && !onSearch) && <div className="load-movies-container">
                 <button className="load-movies" onClick={incrementPageNumber}><p>Load More Movies</p></button>
             </div>)}
         </div>
