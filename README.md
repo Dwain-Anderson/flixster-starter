@@ -100,9 +100,10 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+`<a href="https://www.loom.com/share/59cd52f473ec4608bcd013a445ad2362?sid=41e4e687-583a-4362-ab0f-a3f6e0526575">
+   <p>Project video title</p>
+   <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/59cd52f473ec4608bcd013a445ad2362?sid=41e4e687-583a-4362-ab0f-a3f6e0526575-with-play.gif">
+</a>`
 
 ### Reflection
 
