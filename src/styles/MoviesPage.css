@@ -1,3 +1,8 @@
+div .movies-page {
+    margin: 0;
+    padding: 0;
+}
+
 .section .banner {
     background: #1d212c;
 }
@@ -12,7 +17,11 @@
 }
 
 
+
 @media (max-width: 768px) {
+    .movies-page {
+        padding: auto;
+    }
     .banner {
         flex-wrap: wrap;
         gap: 15px;
@@ -22,6 +31,10 @@
 
 
 @media (max-width: 480px) {
+    .movies-page {
+        padding: auto;
+    }
+
     .banner {
         flex-direction: column;
         align-items: stretch;
@@ -37,7 +50,7 @@
 
 .load-movies {
     align-items: center;
-    background: #1a1e28; /* Slightly darker background for better contrast */
+    background: #1a1e28;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: center;
@@ -47,16 +60,15 @@
 
 .load-movies p {
     color: #fff;
-    font-size: 1rem; /* Larger font size for better readability */
-    font-weight: bold; /* Bold text for better contrast */
-    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .load-movies button {
-    background: #1a1e28; /* Slightly darker background for better contrast */
+    background: #1a1e28;
     border: 1px solid #ddd;
     color: #fff;
-    font-size: 1rem; /* Larger font size for better readability */
-    font-weight: bold; /* Bold text for better contrast */
+    font-size: 1rem;
+    font-weight: bold;
     padding: 0.5rem 1rem;
 }

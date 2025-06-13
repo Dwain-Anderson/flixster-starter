@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { fetchDataPage, TMDB_API_MANAGER} from "../utils/utils";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { fetchDataPage, TMDB_API_MANAGER } from "../utils/utils";
 import MovieList from "../components/MovieList";
 import MovieModal from "../components/MovieModal"
 import Search from "../components/Search";
 import Sort from "../components/Sort";
+import Sidebar from "../components/Sidebar";
 import "../styles/MoviesPage.css";
 
 export default function MoviesPage() {
@@ -17,8 +16,24 @@ export default function MoviesPage() {
     const [movieDetails, setMovieDetails] = useState({})
     const [modalMovieId, setModalMovieId] = useState(null)
     const [sortDetails, setSortDetails] = useState(null)
+    const [showDefaultMovies, setShowDefaultMovies] = useState(true)
 
+    const LIKED_CHECK_STRING = "favorited"
+    const WATCHED_CHECK_STRING = "watched"
     const prevPage = useRef({ pageNumber: 1, movies: null });
+
+    const initMap = new Map()
+    initMap.set(LIKED_CHECK_STRING, new Set())
+    initMap.set(WATCHED_CHECK_STRING, new Set())
+    const [checkedMovies, setCheckedMovies] = useState(initMap)
+
+    function updateCheckedMovies(key, movie, membership) {
+        console.log(key, movie, membership)
+        const value = checkedMovies.get(key)
+        const newCheckedMovies = membership ? [...value, movie] : value.filter(item => item.id !== movie.id)
+        checkedMovies.set(key, newCheckedMovies)
+        setCheckedMovies(new Map(checkedMovies))
+    }
 
     /**
      * Store the previous page number and movies, as movies are cumulatively stored under nextPage()
@@ -53,7 +68,7 @@ export default function MoviesPage() {
     /**
      *  Clears the search results by loading the fetched page number results.
      */
-    async function clearSearch() {
+    async function getPrevPage() {
         setMovies(prevPage.current.movies);
     }
 
@@ -62,18 +77,18 @@ export default function MoviesPage() {
      */
     async function loadMovieDetails() {
         let fetchedMovie = await fetchDataPage(TMDB_API_MANAGER.getMovieById(modalMovieId));
-        fetchedMovie = {...fetchedMovie, video: null}
         const fetchMovieVideos = await fetchDataPage(TMDB_API_MANAGER.getMovieVideos(modalMovieId));
         const fetchMovieVideo = (fetchMovieVideos.results.filter(video => video.type === "Trailer" && video.site === "YouTube"))[0]
+        fetchedMovie = { ...fetchedMovie, video: null }
         if (fetchMovieVideo) {
             fetchedMovie.video = fetchMovieVideo.key;
         }
-        setMovieDetails({...fetchedMovie});
+        setMovieDetails({ ...fetchedMovie });
     }
 
     /**
      * Sorts the list of movies according to one of three criteria: title, release-date, or vote-average.
-     * If sortDetails does not match any of these three options, sortData becomes the identity function.
+     * If sortDetails does not match any of these three options, sortData essentially becomes the identity function.
      */
     async function sortData() {
         const sortedMoviesList = [...movies.results]
@@ -93,10 +108,21 @@ export default function MoviesPage() {
         setMovies({ ...movies, results: sortedMoviesList });
     }
 
+    /**
+     *  Load movies that were checked as either watched or favorited onto the page.
+     */
+    async function loadCheckedMovies(key) {
+        if (key !== WATCHED_CHECK_STRING && key !== LIKED_CHECK_STRING) {
+            return;
+        }
+        setMovies({ ...movies, results: checkedMovies.get(key) })
+    }
+
     useEffect(() => {
         // We did not cover useContext, so instead of using (https://en.wikipedia.org/wiki/Finite-state_machine) styled mechanism, I would use the
         // useContext method instead for communicating state changes down the dom tree.
-        switch (stateStack.pop()) {
+        const nextState = stateStack.pop()
+        switch (nextState) {
             case "initialPage": case "nextPage":
                 nextPage();
                 break;
@@ -109,12 +135,16 @@ export default function MoviesPage() {
             case "sortData":
                 sortData();
                 break;
-            case "clearSearch": case "toggleView":
-                clearSearch();
+            case "home": case "clearSearch": case "toggleView":
+                getPrevPage();
+                break;
+            case LIKED_CHECK_STRING: case WATCHED_CHECK_STRING:
+                loadCheckedMovies(nextState);
                 break;
             default:
                 break;
-    }}, [stateStack]);
+        }
+    }, [stateStack]);
 
 
     const incrementPageNumber = () => {
@@ -124,29 +154,31 @@ export default function MoviesPage() {
     };
 
     return (
-        <>
-            <Header />
-            <main>
-                <section className="banner">
-                    <Search setSearchQuery={setSearchQuery}  stateStack={stateStack} setStateStack={setStateStack} />
+        <div className="movies-page">
+            <section>
+                <Sidebar setShowDefaultMovies={setShowDefaultMovies} stateStack={stateStack} setStateStack={setStateStack}>
+
+                </Sidebar>
+
+                {(showDefaultMovies && <section className="banner">
+                    <Search setSearchQuery={setSearchQuery} stateStack={stateStack} setStateStack={setStateStack} />
                     <Sort setSortDetails={setSortDetails} stateStack={stateStack} setStateStack={setStateStack} />
-                </section>
-                 {(showModal && (
-                    <MovieModal
-                        key={modalMovieId}
-                        isOpen={showModal}
-                        movie={movieDetails}
-                        setShowModal={setShowModal}
-                        setModalMovieId={setModalMovieId}
-                        setMovieDetails={setMovieDetails}
-                    />
-                ))}
-                <MovieList movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
-                <div className = "load-movies-container">
-                    <button className="load-movies" onClick={incrementPageNumber}><p>Load More Movies</p></button>
-                </div>
-            </main>
-            <Footer />
-        </>
+                </section>)}
+            </section>
+            {(showModal && (
+                <MovieModal
+                    key={modalMovieId}
+                    isOpen={showModal}
+                    movie={movieDetails}
+                    setShowModal={setShowModal}
+                    setModalMovieId={setModalMovieId}
+                    setMovieDetails={setMovieDetails}
+                />
+            ))}
+            <MovieList updateCheckedMovies={updateCheckedMovies} movies={movies} setModalMovieId={setModalMovieId} setShowModal={setShowModal} stateStack={stateStack} setStateStack={setStateStack} />
+            {(showDefaultMovies && <div className="load-movies-container">
+                <button className="load-movies" onClick={incrementPageNumber}><p>Load More Movies</p></button>
+            </div>)}
+        </div>
     )
 }

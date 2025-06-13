@@ -1,9 +1,8 @@
 import { useState } from "react"
 import "../styles/CheckButton.css"
 
-export default function CheckButton({ visualElement }) {
+export default function CheckButton({ visualElement, movie, updateCheckedMovies }) {
     const [checkState, setCheckState] = useState(false);
-
 
     const buttonLabel = checkState
         ? `Mark as un${visualElement.name}`
@@ -16,7 +15,9 @@ export default function CheckButton({ visualElement }) {
     const handleClick = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setCheckState(!checkState);
+        let newState = !checkState;
+        setCheckState(newState);
+        updateCheckedMovies(visualElement.name, movie, newState);
     }
 
     return (

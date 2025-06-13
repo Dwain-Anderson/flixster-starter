@@ -69,3 +69,4 @@ const VISUAL_WATCH_BUTTON = {
 }
 
 export { formatPosterPath, formatGenreString, fetchDataPage, TMDB_API_MANAGER, VISUAL_FAVORITE_BUTTON, VISUAL_WATCH_BUTTON };
+
