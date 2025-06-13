@@ -56,10 +56,12 @@
     width: 100%;
     min-height: 100%;
     min-width: 100%;
+    color: #000000;
+    background-color: #000000;
 }
 
 .movie-vote-average {
-    color: #333333;
+    color: #000000;
     font-size: 14px;
     font-weight: 500;
     margin: 4px 0 8px;
@@ -83,6 +85,7 @@
         height: 36px;
         margin: 6px 6px;
         -webkit-line-clamp: 2;
+        color: #000000;
     }
 
     .poster-container {
@@ -103,6 +106,7 @@
     .movie-vote-average {
         font-size: 12px;
         margin: 2px 0 6px;
+        color: #000000;
     }
 
     .check-button-container {

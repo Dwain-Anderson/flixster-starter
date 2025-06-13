@@ -2,6 +2,7 @@
   background: none;
   border: none;
   margin: auto;
+  background-color: white;
 }
 
 button:focus {
@@ -12,12 +13,14 @@ button:focus {
 .checkButton-icon {
   display: inline-block;
   line-height: 0;
+  background-color: #000000;
 }
 
 .checkButton-img {
   display: block;
   height: 24px;
   width: 24px;
+  background-color: #000000;
 }
 
 .sr-only {
@@ -29,4 +32,6 @@ button:focus {
   padding: 0;
   position: absolute;
   width: 1px;
+  color: #000000;
+  /* background-color: #000000; */
 }
