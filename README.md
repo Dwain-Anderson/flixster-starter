@@ -110,7 +110,8 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
 The labs were helpful with implementing useState and component related features but not useEffect with multiple dependencies and multiple functions.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-Refractor code to use useContext.
+* 
+Refractor code base to use useContext and avoid the prop drilling currenly used in my web-app.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
  I did not demo.
