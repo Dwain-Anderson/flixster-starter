@@ -100,10 +100,10 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-s
 
 ### Walkthrough Video
 
-`<a href="https://www.loom.com/share/59cd52f473ec4608bcd013a445ad2362?sid=41e4e687-583a-4362-ab0f-a3f6e0526575">
+<a href="https://www.loom.com/share/59cd52f473ec4608bcd013a445ad2362?sid=41e4e687-583a-4362-ab0f-a3f6e0526575">
    <p>Project video title</p>
    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/59cd52f473ec4608bcd013a445ad2362?sid=41e4e687-583a-4362-ab0f-a3f6e0526575-with-play.gif">
-</a>`
+</a>
 
 ### Reflection
 
