@@ -20,7 +20,7 @@ button:focus {
   display: block;
   height: 24px;
   width: 24px;
-  background-color: #000000;
+  background-color: white;
 }
 
 .sr-only {
@@ -33,5 +33,4 @@ button:focus {
   position: absolute;
   width: 1px;
   color: #000000;
-  /* background-color: #000000; */
 }
